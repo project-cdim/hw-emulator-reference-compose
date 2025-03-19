@@ -1,0 +1,18 @@
+services:
+  hw-emulator:
+    build:
+      context: .
+      dockerfile: ./emulator/Dockerfile
+    container_name: hw-emulator
+    tty: true
+    ports:
+      - 5000:5000
+    networks:
+      - cdim-net
+    logging:
+      options:
+        max-size: 50m
+
+networks:
+  cdim-net:
+    external: true
